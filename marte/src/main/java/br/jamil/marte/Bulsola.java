@@ -33,12 +33,12 @@ public class Bulsola {
 		pontoCardeal = pontosCardeais.get(pontosCardeais.indexOf(new PontoCardeal(direcao)));
 	}
 	
-	public Direcao virarParaDireita() {
+	public Direcao virouParaDireita() {
 		pontoCardeal = pontoCardeal.getDireita();
 		return pontoCardeal.getValue();
 	}
 	
-	public Direcao virarParaEsquerda() {
+	public Direcao virouParaEsquerda() {
 		pontoCardeal = pontoCardeal.getEsquerda();
 		return pontoCardeal.getValue();
 	}

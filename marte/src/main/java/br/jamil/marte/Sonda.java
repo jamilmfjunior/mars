@@ -15,11 +15,11 @@ public class Sonda {
 	}
 
 	public void virarADireita() {
-		bulsola.virarParaDireita();
+		bulsola.virouParaDireita();
 	}
 	
 	public void virarAEsquerda() {
-		bulsola.virarParaEsquerda();
+		bulsola.virouParaEsquerda();
 	}
 	
 	public Direcao getPosicao() {
