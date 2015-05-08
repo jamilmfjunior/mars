@@ -4,7 +4,7 @@ Solução do problema proposto pelo teste.
 
  ## Build do projeto
 ```sh
-$ mvn clean install assembly:single
+$ mvn clean compile assembly:single
 ```
 ## Execução
 
