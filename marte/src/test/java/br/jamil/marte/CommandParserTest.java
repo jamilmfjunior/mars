@@ -15,13 +15,13 @@ public class CommandParserTest {
 	}
 	
 	@Test(expected = CommandParserError.class)
-	public void parseInformacaoPlanaltoVazia() throws Exception {
+	public void parseInformacaoLinhaVazia() throws Exception {
 		CommandParser parser = new CommandParser();
 		parser.parseLine("");
 	}
 	
 	@Test(expected = CommandParserError.class) 
-	public void parseInformacaoPlanaltoFormatoInvalido() throws Exception {
+	public void parseInformacaoLinhaFormatoInvalido() throws Exception {
 		CommandParser parser = new CommandParser();
 		parser.parseLine("5");
 	}
@@ -51,7 +51,56 @@ public class CommandParserTest {
 		
 		assertEquals(5, planalto.getMaxX());
 		assertEquals(6, planalto.getMaxY());
+	}
+	
+	@Test 
+	public void parseInformacaoSonda() throws Exception {
+		CommandParser parser = new CommandParser();
+		Command<?> command = parser.parseLine("10 1 N");
 		
+		assertTrue(command instanceof CommandCreateSonda);
+	}
+	
+	@Test(expected = CommandParserError.class) 
+	public void parseInformacaoSondaTipoValorInvalido() throws Exception {
+		CommandParser parser = new CommandParser();
+		parser.parseLine("5 5 R");
+	}
+	
+	@Test
+	public void validaParametrosSonda() throws Exception {
+		CommandParser parser = new CommandParser();
+		Command<?> command = parser.parseLine("1 2 S");
+		
+		Sonda sonda = (Sonda) command.run();
+		
+		assertEquals(1, sonda.getEixoX());
+		assertEquals(2, sonda.getEixoY());
+		assertEquals(Direcao.Sul, sonda.getPosicao());
+	}
+	
+	@Test
+	public void parseInformacaoMovimento() throws Exception {
+		CommandParser parser = new CommandParser();
+		Command<?> command = parser.parseLine("LMRLLL");
+		
+		assertTrue(command instanceof CommandMoveSonda);
+	}
+	
+	@Test(expected = CommandParserError.class) 
+	public void parseInformacaoMovimentoInválida() throws Exception {
+		CommandParser parser = new CommandParser();
+		parser.parseLine("LMX");
+	}
+	
+	@Test
+	public void validaMovimento() throws Exception {
+		CommandParser parser = new CommandParser();
+		Command<?> command =  parser.parseLine("LMR");
+		
+		assertEquals("L", command.getParametro(0));
+		assertEquals("M", command.getParametro(1));
+		assertEquals("R", command.getParametro(2));
 	}
 	
 }

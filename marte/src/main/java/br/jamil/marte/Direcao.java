@@ -1,5 +1,7 @@
 package br.jamil.marte;
 
+import java.util.Arrays;
+
 public enum Direcao {
 	
 	Norte("N"),
@@ -13,5 +15,12 @@ public enum Direcao {
 		this.direcao = direcao;
 	}
 	
-	
+	public static Direcao valueToDirection(String value) {
+		for (Direcao valor : Direcao.values()) {
+			if (valor.direcao.equals(value)) {
+				return valor;
+			}
+		}
+		return null;
+	}
 }
