@@ -27,18 +27,29 @@ public class Planalto {
 	}
 
 	public int norte(int posicao) {
-		return ++posicao;
+		if (posicao == maxY) {
+			return maxY;
+		}return ++posicao;
 	}
 	
 	public int sul(int posicao) {
+		if (posicao == 0) {
+			return 0;
+		}
 		return --posicao;
 	}
 	
 	public int leste(int posicao) {
+		if (posicao == maxX) {
+			return maxX;
+		}
 		return ++posicao;
 	}
 	
 	public int oeste(int posicao) {
+		if (posicao == 0) {
+			return 0;
+		}
 		return --posicao;
 	}
 
