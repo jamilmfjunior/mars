@@ -64,6 +64,18 @@ public class NASATest {
 		verify(commandParser).parseLine(instrucao);
 	}
 	
+	@Test(expected = InstrucoesException.class)
+	public void validaOrdemDasInstrucoesPrimeiraLinhaComoSonda() throws Exception {
+		NASA nasaPrimeiraLinha = new NASA(new StringReader("5 5 S\n"), new CommandParser());
+		nasaPrimeiraLinha.enviarInstrucoes();
+	}
+	
+	@Test(expected = InstrucoesException.class)
+	public void validaOrdemDasInstrucoesPrimeiraLinhaComoMovimentos() throws Exception {
+		NASA nasaPrimeiraLinha = new NASA(new StringReader("LMR\n"), new CommandParser());
+		nasaPrimeiraLinha.enviarInstrucoes();
+	}
+	
 	
 
 }

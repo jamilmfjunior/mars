@@ -25,7 +25,7 @@ public class NASA {
 
 	private List<Sonda> sondas = new ArrayList<Sonda>();
 	
-	private int sondaSelecionada = 0;
+	private int sondaSelecionada = -1;
 	
 	public NASA(String fileName) throws FileNotFoundException {
 		reader = new FileReader(fileName);
@@ -37,7 +37,7 @@ public class NASA {
 		this.commandParser = commandParser;
 	}
 	
-	public void enviarInstrucoes() throws IOException, CommandParserError {
+	public void enviarInstrucoes() throws IOException, CommandParserError, InstrucoesException {
 		BufferedReader instrucoesReader = new BufferedReader(reader);
 		
 		
@@ -57,7 +57,7 @@ public class NASA {
 		}
 	}
 	
-	public void processaCommando(Command<?> command) {
+	public void processaCommando(Command<?> command) throws InstrucoesException {
 		if (command instanceof CommandCreatePlanalto) {
 			processaResultado((Planalto)command.run());
 		} else if (command instanceof CommandCreateSonda) {
@@ -67,7 +67,10 @@ public class NASA {
 		}
 	}
 
-	private void processaMovimento(Command<?> command) {
+	private void processaMovimento(Command<?> command) throws InstrucoesException {
+		if (this.sondas.size() == 0) {
+			throw new InstrucoesException("Comandos de movimento devem ser colocados no arquivo após a criação de pelo menos uma sonda.");
+		}
 		trocaSonda();
 		for (int i=0; i<command.getQtdParametros(); i++) {
 			if ("M".equals(command.getParametro(i))) {
@@ -87,7 +90,10 @@ public class NASA {
 		}
 	}
 
-	private void processaResultado(Sonda sonda) {
+	private void processaResultado(Sonda sonda) throws InstrucoesException {
+		if (planalto == null) {
+			throw new InstrucoesException("Erro na orden das instruções do arquivo, planalto deve ser a primeira instrução.");
+		}
 		sonda.setPlanalto(planalto);
 		this.sondas.add(sonda);
 	}
@@ -111,6 +117,8 @@ public class NASA {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			e.printStackTrace();
+		} catch (InstrucoesException e) {
+			System.out.println(e.getMessage());
 		}
 			
 	}
