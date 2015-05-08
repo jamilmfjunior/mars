@@ -3,6 +3,7 @@ package br.jamil.marte;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import br.jamil.marte.command.CommandCreatePlanalto;
 import br.jamil.marte.command.CommandCreateSonda;
 import br.jamil.marte.command.CommandMoveSonda;
 import br.jamil.marte.command.CommandParser;
+import br.jamil.marte.command.CommandParserError;
 
 public class NASA {
 	
@@ -35,7 +37,7 @@ public class NASA {
 		this.commandParser = commandParser;
 	}
 	
-	public void enviarInstrucoes() throws Exception {
+	public void enviarInstrucoes() throws IOException, CommandParserError {
 		BufferedReader instrucoesReader = new BufferedReader(reader);
 		
 		
@@ -105,7 +107,9 @@ public class NASA {
 			nasa.enviarInstrucoes();
 		} catch (FileNotFoundException e) {
 			System.out.println("Arquivo não encontrado.");
-		} catch (Exception e) {
+		} catch (CommandParserError e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 			

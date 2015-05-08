@@ -33,7 +33,7 @@ public class CommandParserTest {
 	@Test(expected = CommandParserError.class) 
 	public void parseInformacaoLinhaFormatoInvalido() throws Exception {
 		CommandParser parser = new CommandParser();
-		parser.parseLine("5");
+		parser.parseLine(" 5");
 	}
 	
 	@Test(expected = CommandParserError.class) 
