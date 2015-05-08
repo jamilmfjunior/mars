@@ -1,17 +1,16 @@
 package br.jamil.marte;
 
-import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.io.StringReader;
-import java.util.Arrays;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
-
-import static org.mockito.Mockito.*;
-
 import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -33,9 +32,9 @@ public class NASATest {
 				"3 3 E\n"+
 				"MMRMMRMRRM\n"), commandParser);
 		final CommandCreatePlanalto planalto = mock(CommandCreatePlanalto.class);
-		doAnswer(new Answer() {
+		doAnswer(new Answer<Command<?>>() {
 
-			public Object answer(InvocationOnMock invocation) throws Throwable {
+			public Command<?> answer(InvocationOnMock invocation) throws Throwable {
 				return planalto;
 
 			}

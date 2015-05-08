@@ -88,9 +88,21 @@ public class NASA {
 		this.planalto = planalto;
 	}
 	
-	public static void main(String[] args) throws Exception {
-		NASA nasa = new NASA(args[0]);
-		nasa.enviarInstrucoes();
+	public static void main(String[] args) {
+		if (args.length != 1) {
+			System.out.println("sintaxe: br.jamil.marte.NASA filename.txt");
+			System.exit(1);
+		}
+		NASA nasa;
+		try {
+			nasa = new NASA(args[0]);
+			nasa.enviarInstrucoes();
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo não encontrado.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			
 	}
 	
 }
