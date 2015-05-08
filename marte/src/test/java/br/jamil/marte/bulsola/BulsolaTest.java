@@ -1,8 +1,11 @@
-package br.jamil.marte;
+package br.jamil.marte.bulsola;
 
 import static junit.framework.Assert.*;
 
 import org.junit.Test;
+
+import br.jamil.marte.bulsola.Bulsola;
+import br.jamil.marte.bulsola.Direcao;
 
 public class BulsolaTest {
 	

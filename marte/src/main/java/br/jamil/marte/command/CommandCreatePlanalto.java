@@ -1,7 +1,9 @@
-package br.jamil.marte;
+package br.jamil.marte.command;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.jamil.marte.Planalto;
 
 public class CommandCreatePlanalto implements Command<Planalto> {
 	

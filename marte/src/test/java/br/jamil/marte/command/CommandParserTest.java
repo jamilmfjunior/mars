@@ -1,8 +1,18 @@
-package br.jamil.marte;
+package br.jamil.marte.command;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import br.jamil.marte.Planalto;
+import br.jamil.marte.Sonda;
+import br.jamil.marte.bulsola.Direcao;
+import br.jamil.marte.command.Command;
+import br.jamil.marte.command.CommandCreatePlanalto;
+import br.jamil.marte.command.CommandCreateSonda;
+import br.jamil.marte.command.CommandMoveSonda;
+import br.jamil.marte.command.CommandParser;
+import br.jamil.marte.command.CommandParserError;
 
 public class CommandParserTest {
 	

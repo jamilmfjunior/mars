@@ -7,6 +7,12 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.jamil.marte.command.Command;
+import br.jamil.marte.command.CommandCreatePlanalto;
+import br.jamil.marte.command.CommandCreateSonda;
+import br.jamil.marte.command.CommandMoveSonda;
+import br.jamil.marte.command.CommandParser;
+
 public class NASA {
 	
 	private Reader reader;
@@ -45,7 +51,7 @@ public class NASA {
 		instrucoesReader.close();
 		
 		for (Sonda sonda : sondas) {
-			System.out.println(sonda.getEixoX() + " " + sonda.getEixoY() + " " + sonda.getPosicao().direcao);
+			System.out.println(sonda.getEixoX() + " " + sonda.getEixoY() + " " + sonda.getPosicao().getDirecao());
 		}
 	}
 	

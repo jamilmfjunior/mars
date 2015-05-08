@@ -1,5 +1,8 @@
 package br.jamil.marte;
 
+import br.jamil.marte.bulsola.Bulsola;
+import br.jamil.marte.bulsola.Direcao;
+
 public class Sonda {
 
 	private Bulsola bulsola;

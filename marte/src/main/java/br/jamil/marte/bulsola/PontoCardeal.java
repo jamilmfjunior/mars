@@ -1,4 +1,4 @@
-package br.jamil.marte;
+package br.jamil.marte.bulsola;
 
 public class PontoCardeal {
 	

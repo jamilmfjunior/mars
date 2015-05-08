@@ -1,4 +1,4 @@
-package br.jamil.marte;
+package br.jamil.marte.bulsola;
 
 import java.util.Arrays;
 
@@ -22,5 +22,9 @@ public enum Direcao {
 			}
 		}
 		return null;
+	}
+	
+	public String getDirecao() {
+		return this.direcao;
 	}
 }

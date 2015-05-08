@@ -1,7 +1,11 @@
-package br.jamil.marte;
+package br.jamil.marte.command;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.jamil.marte.Sonda;
+import br.jamil.marte.bulsola.Bulsola;
+import br.jamil.marte.bulsola.Direcao;
 
 public class CommandCreateSonda implements Command<Sonda> {
 	

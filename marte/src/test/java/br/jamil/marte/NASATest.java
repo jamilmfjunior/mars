@@ -15,6 +15,11 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
+import br.jamil.marte.command.Command;
+import br.jamil.marte.command.CommandCreatePlanalto;
+import br.jamil.marte.command.CommandParser;
+import br.jamil.marte.command.CommandParserError;
+
 public class NASATest {
 	
 	@Mock

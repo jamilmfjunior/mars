@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.jamil.marte.bulsola.Bulsola;
+import br.jamil.marte.bulsola.Direcao;
+
 public class SondaTest {
 	
 	Sonda sonda;

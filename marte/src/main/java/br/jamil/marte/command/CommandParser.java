@@ -1,4 +1,4 @@
-package br.jamil.marte;
+package br.jamil.marte.command;
 
 import java.util.Arrays;
 
