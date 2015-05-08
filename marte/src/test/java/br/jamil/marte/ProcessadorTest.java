@@ -20,17 +20,17 @@ import br.jamil.marte.command.CommandCreatePlanalto;
 import br.jamil.marte.command.CommandParser;
 import br.jamil.marte.command.CommandParserError;
 
-public class NASATest {
+public class ProcessadorTest {
 	
 	@Mock
 	private CommandParser commandParser;
 	
-	private NASA nasa;
+	private Processador processador;
 	
 	@Before
 	public void init() throws CommandParserError {
 		MockitoAnnotations.initMocks(this);
-		nasa = new NASA(new StringReader(
+		processador = new Processador(new StringReader(
 				"5 5\n"+
 				"1 2 N\n"+
 				"LMLMLMLMM\n"+
@@ -50,7 +50,7 @@ public class NASATest {
 	
 	@Test
 	public void validaChamadaDoParserParaCadaLinha() throws Exception {
-		nasa.enviarInstrucoes();
+		processador.enviarInstrucoes();
 		
 		verify(commandParser, times(5)).parseLine(anyString());
 	}
@@ -58,22 +58,22 @@ public class NASATest {
 	@Test
 	public void validaDadosEnviadosParaParser() throws Exception {
 		String instrucao = "5 5";
-		nasa = new NASA(new StringReader(instrucao), commandParser);
-		nasa.enviarInstrucoes();
+		processador = new Processador(new StringReader(instrucao), commandParser);
+		processador.enviarInstrucoes();
 		
 		verify(commandParser).parseLine(instrucao);
 	}
 	
 	@Test(expected = InstrucoesException.class)
 	public void validaOrdemDasInstrucoesPrimeiraLinhaComoSonda() throws Exception {
-		NASA nasaPrimeiraLinha = new NASA(new StringReader("5 5 S\n"), new CommandParser());
-		nasaPrimeiraLinha.enviarInstrucoes();
+		Processador processadorPrimeiraLinha = new Processador(new StringReader("5 5 S\n"), new CommandParser());
+		processadorPrimeiraLinha.enviarInstrucoes();
 	}
 	
 	@Test(expected = InstrucoesException.class)
 	public void validaOrdemDasInstrucoesPrimeiraLinhaComoMovimentos() throws Exception {
-		NASA nasaPrimeiraLinha = new NASA(new StringReader("LMR\n"), new CommandParser());
-		nasaPrimeiraLinha.enviarInstrucoes();
+		Processador processadorPrimeiraLinha = new Processador(new StringReader("LMR\n"), new CommandParser());
+		processadorPrimeiraLinha.enviarInstrucoes();
 	}
 	
 	

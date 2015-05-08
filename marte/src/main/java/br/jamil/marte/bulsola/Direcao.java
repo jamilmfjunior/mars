@@ -1,7 +1,5 @@
 package br.jamil.marte.bulsola;
 
-import java.util.Arrays;
-
 public enum Direcao {
 	
 	Norte("N"),
