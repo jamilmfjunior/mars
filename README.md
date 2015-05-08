@@ -4,7 +4,7 @@ Solução do problema proposto pelo teste.
 
  ## Build do projeto
 ```sh
-$ mvn clean install assembly:single
+$ mvn clean compile assembly:single
 ```
 ## Execução
 
@@ -41,7 +41,7 @@ $ java -jar marte-0.0.1-SNAPSHOT-jar-with-dependencies.jar /tmp/i.txt
 
  Onde as duas primeiras posições representam as coordenadas em que a Sonda ficou depois da execução dos comandos e a ultima posição representa para qual direção ela está apontando. E cada linha representa uma sonda por ordem de criação.
  
- ## Considerações
+## Considerações
  
   Quando a sonda estiver se movimentando e chegar ao fim do planalto, foi considerado que ela não conseguira se movimentar e permanecerá na mesma posição em que estava.
 
