@@ -21,7 +21,7 @@ public class CommandCreateSonda implements Command<Sonda> {
 
 	public Sonda run() {
 		return new Sonda(Integer.parseInt(getParametro(0)), Integer.parseInt(getParametro(1)), 
-				new Bulsola(Direcao.valueToDirection(getParametro(2))), new Planalto(5, 5));
+				new Bulsola(Direcao.valueToDirection(getParametro(2))));
 	}
 
 }

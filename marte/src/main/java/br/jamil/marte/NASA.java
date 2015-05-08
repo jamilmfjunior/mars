@@ -80,6 +80,7 @@ public class NASA {
 	}
 
 	private void processaResultado(Sonda sonda) {
+		sonda.setPlanalto(planalto);
 		this.sondas.add(sonda);
 	}
 

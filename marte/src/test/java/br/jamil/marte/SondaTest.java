@@ -11,7 +11,8 @@ public class SondaTest {
 	
 	@Before
 	public void setup() {
-		sonda = new Sonda(1,2, new Bulsola(Direcao.Norte), new Planalto(5, 5));
+		sonda = new Sonda(1,2, new Bulsola(Direcao.Norte));
+		sonda.setPlanalto(new Planalto(5, 5));
 		
 	}
 	
@@ -58,7 +59,8 @@ public class SondaTest {
 	public void validacao2() {
 //		3 3 E
 //		MMR MMR MRRM
-		Sonda sonda2 = new Sonda(3, 3, new Bulsola(Direcao.Leste), new Planalto(5,5));
+		Sonda sonda2 = new Sonda(3, 3, new Bulsola(Direcao.Leste));
+		sonda2.setPlanalto(new Planalto(5, 5));
 		sonda2.mover();
 		sonda2.mover();
 		assertEquals(5, sonda2.getEixoX());

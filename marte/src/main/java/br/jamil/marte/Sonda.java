@@ -7,11 +7,18 @@ public class Sonda {
 	private int x;
 	private int y;
 	
-	public Sonda(int x, int y, Bulsola bulsola, Planalto planalto) {
+	public Sonda(int x, int y, Bulsola bulsola) {
 		this.bulsola = bulsola;
-		this.planalto = planalto;
 		this.x = x;
 		this.y = y;
+	}
+
+	public Planalto getPlanalto() {
+		return planalto;
+	}
+
+	public void setPlanalto(Planalto planalto) {
+		this.planalto = planalto;
 	}
 
 	public void virarADireita() {
